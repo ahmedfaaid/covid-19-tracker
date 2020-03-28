@@ -5,7 +5,9 @@ function indexPage() {
     return (
         <>
             <Header />
-            <GlobalCases url='https://coronavirus-tracker-api.herokuapp.com/v2/latest' />
+            <main>
+                <GlobalCases url='https://coronavirus-tracker-api.herokuapp.com/v2/latest' />
+            </main>
         </>
     )
 }

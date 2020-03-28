@@ -1,5 +1,21 @@
+import styled from 'styled-components'
 import useStatistics from '../src/useStatistics'
+
+import Confirmed from './Confirmed'
+import Deaths from './Deaths'
 import Spinner from './Spinner'
+
+const CasesWrapper = styled.section`
+    height: 30vh;
+    min-height: 30vh;
+    max-width: 1280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    color: #fff;
+`
 
 const GlobalCases = ({ url }) => {
     const { statistics, isLoading, error } = useStatistics(url)
@@ -8,16 +24,10 @@ const GlobalCases = ({ url }) => {
     if (error) return <p>There was an error</p>
 
     return (
-        <div>
-            <div>
-                <h3>Confirmed cases:</h3>
-                <span>{statistics.latest.confirmed}</span>
-            </div>
-            <div>
-                <h3>Deaths:</h3>
-                <span>{statistics.latest.deaths}</span>
-            </div>
-        </div>
+        <CasesWrapper>
+            <Confirmed confirmed={statistics.latest.confirmed} />
+            <Deaths deaths={statistics.latest.deaths} />
+        </CasesWrapper>
     )
 }
 

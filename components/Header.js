@@ -6,11 +6,12 @@ const Navbar = styled.nav`
     display: flex;
     justify-content: center;
     padding: 20px 0;
+    font-size: 1.5rem;
 `
 
 const LogoHeading = styled.h1`
     display: inline-block;
-    margin-left: 10px;
+    margin: 0 10px;
     color: #fff;
 `
 
@@ -18,8 +19,9 @@ export default function Header() {
     return (
         <Navbar>
             <div>
-                <span>🦠</span>
+                <span style={{ fontSize: '2rem' }}>🦠</span>
                 <LogoHeading>Covid-19 Tracker</LogoHeading>
+                <span style={{ fontSize: '2rem' }}>🦠</span>
             </div>
         </Navbar>
     )
