@@ -1,9 +1,10 @@
 import useStatistics from '../src/useStatistics'
+import Spinner from './Spinner'
 
 const GlobalCases = ({ url }) => {
     const { statistics, isLoading, error } = useStatistics(url)
 
-    if (isLoading) return <p>Data is loading...</p>
+    if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
 
     return (
