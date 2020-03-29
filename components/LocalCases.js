@@ -17,23 +17,19 @@ const CasesWrapper = styled.section`
     color: #fff;
 `
 
-const GlobalCases = ({ url }) => {
+const LocalCases = ({ url }) => {
     const { statistics, isLoading, error } = useStatistics(url)
 
     if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
 
     return (
-        <>
-            <h2 style={{ textAlign: 'center', marginTop: '10px' }}>
-                Global Cases
-            </h2>
-            <CasesWrapper>
-                <Confirmed confirmed={statistics.latest.confirmed} />
-                <Deaths deaths={statistics.latest.deaths} />
-            </CasesWrapper>
-        </>
+        <CasesWrapper>
+            <h2>Local Cases</h2>
+            <Confirmed confirmed={statistics.latest.confirmed} />
+            <Deaths deaths={statistics.latest.deaths} />
+        </CasesWrapper>
     )
 }
 
-export default GlobalCases
+export default LocalCases
