@@ -13,12 +13,20 @@ const CardInfo = styled.div`
     padding-bottom: 45px;
     padding-top: 45px;
 
+    div {
+        width: 100%;
+
+        &:not(:last-of-type) {
+            border-right: 1px solid #e0e0e0;
+        }
+    }
+
     span {
         display: block;
         font-size: 14px;
         font-weight: 500;
         padding-left: 25%;
-        text-align: left;
+        text-align: center;
 
         &:first-of-type {
             color: #a0a0a0;
@@ -40,17 +48,17 @@ export default function ProvinceCard({ locations }) {
             {locations.map(({ province, latest }) => (
                 <div>
                     <CardInfo>
-                        <div style={{ width: '100%' }}>
+                        <div>
                             <span>Province/State/Territory</span>
                             <span>{province}</span>
                         </div>
 
-                        <div style={{ width: '100%' }}>
+                        <div>
                             <span>Confirmed</span>
                             <span>{latest.confirmed}</span>
                         </div>
 
-                        <div style={{ width: '100%' }}>
+                        <div>
                             <span>Deaths</span>
                             <span>{latest.deaths}</span>
                         </div>
