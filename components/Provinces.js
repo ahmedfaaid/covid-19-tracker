@@ -37,14 +37,22 @@ const CardInfo = styled.div`
     }
 `
 
-export default function ProvinceCard({ locations }) {
-    // format number with comma separators
-    const formatNumber = num =>
-        num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+export default function ProvinceCard({ locations, countryName }) {
+    // format number with comma separators for country populations
+    // const formatNumber = num =>
+    //     num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 
     return (
         <section>
-            <h3>Province/Territory Breakdown</h3>
+            <h3
+                style={{
+                    textAlign: 'center',
+                    margin: '30px 0 30px 0',
+                    padding: '30px 0',
+                }}
+            >
+                PROVINCE/TERRITORY BREAKDOWN FOR {countryName.toUpperCase()}
+            </h3>
             {locations.map(({ province, latest }) => (
                 <div>
                     <CardInfo>

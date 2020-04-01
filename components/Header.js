@@ -20,7 +20,7 @@ export default function Header() {
         <Navbar>
             <div>
                 <span style={{ fontSize: '2rem' }}>🦠</span>
-                <LogoHeading>Covid-19 Tracker</LogoHeading>
+                <LogoHeading>COVID-19 Tracker</LogoHeading>
                 <span style={{ fontSize: '2rem' }}>🦠</span>
             </div>
         </Navbar>

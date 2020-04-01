@@ -8,6 +8,7 @@ import Spinner from './Spinner'
 const CasesWrapper = styled.section`
     max-width: 1280px;
     margin: auto;
+    padding: 40px 0 100px 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
@@ -22,15 +23,21 @@ const GlobalCases = ({ url }) => {
     if (error) return <p>There was an error</p>
 
     return (
-        <>
-            <h2 style={{ textAlign: 'center', marginTop: '10px' }}>
-                Global Cases
+        <section>
+            <h2
+                style={{
+                    textAlign: 'center',
+                    margin: '30px 0 30px 0',
+                    padding: '30px 0',
+                }}
+            >
+                GLOBAL CASES
             </h2>
             <CasesWrapper>
                 <Confirmed confirmed={statistics.latest.confirmed} />
                 <Deaths deaths={statistics.latest.deaths} />
             </CasesWrapper>
-        </>
+        </section>
     )
 }
 
