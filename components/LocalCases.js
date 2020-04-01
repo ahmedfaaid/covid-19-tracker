@@ -7,7 +7,6 @@ import Spinner from './Spinner'
 
 const CasesWrapper = styled.section`
     height: 30vh;
-    min-height: 30vh;
     max-width: 1280px;
     margin: auto;
     display: grid;
@@ -23,12 +22,16 @@ const LocalCases = ({ url }) => {
     if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
 
+    const { latest, locations } = statistics
+
     return (
-        <CasesWrapper>
-            <h2>Local Cases</h2>
-            <Confirmed confirmed={statistics.latest.confirmed} />
-            <Deaths deaths={statistics.latest.deaths} />
-        </CasesWrapper>
+        <>
+            <h2>Country Statistics</h2>
+            <CasesWrapper>
+                <Confirmed confirmed={latest.confirmed} />
+                <Deaths deaths={latest.deaths} />
+            </CasesWrapper>
+        </>
     )
 }
 

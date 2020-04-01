@@ -16,19 +16,13 @@ export default function useStatistics(url) {
                     .then(res => res.json())
                     .catch(err => setError(err))
 
-                // if (data.status === 404 && data.error) {
-                //     setError(data.error.message)
-                // } else {
-                //     setError()
-                // }
-
                 setStatistics(data)
-                setIsLoading(false)
             } catch (error) {
                 console.log(`There was a fetch error: ${error}`)
                 setError(error)
             }
 
+            setIsLoading(false)
             console.log('Data loaded')
         }
 

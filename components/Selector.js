@@ -7,15 +7,38 @@ import LocalCases from './LocalCases'
 export default function Selector({ url }) {
     const { statistics, isLoading, error } = useStatistics(url)
     const [selectedCountryCode, setSelectedCountryCode] = useState('CA')
-    const [country, setCountry] = useState('Canada')
-    const [province, setProvince] = useState('Ontario')
 
     if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
 
-    const locations = statistics.locations.sort()
+    const { locations } = statistics
 
-    // console.log(selectedCountryCode, country, province)
+    /* START */
+    // THIS CODE WILL BE REDUNDANT BUT ITS USEFUL TO REMEMBER FOR THE FUTURE
+    // creating a unique array of country names
+    // return only country names
+    // const countryNamesArr = locations.map(location => location.country)
+
+    // remove duplicates with set
+    // const countryNamesObj = new Set(countryNamesArr)
+
+    // convert back to array
+    // const allCountryNames = [...countryNamesObj]
+    /* END */
+
+    // creating a unique array of country codes and names
+    const locationArray = locations.map(({ country, country_code }) => ({
+        code: country_code,
+        country,
+    }))
+
+    const uniqueLocations = Array.from(
+        new Set(locationArray.map(a => a.code))
+    ).map(countryCode => {
+        return locationArray.find(a => a.code === countryCode)
+    })
+
+    console.log(uniqueLocations)
 
     return (
         <section>
@@ -25,18 +48,19 @@ export default function Selector({ url }) {
                     setSelectedCountryCode(e.target.value)
                 }}
             >
-                {locations.map(({ id, country, country_code, province }) => (
+                {uniqueLocations.map(({ code, country }) => (
                     <option
-                        key={id}
-                        selected={selectedCountryCode === country_code}
-                        value={country_code}
+                        key={code}
+                        selected={selectedCountryCode === code}
+                        value={code}
                     >
-                        {province && province !== ''
-                            ? `${country} - ${province}`
-                            : `${country}`}
+                        {country}
                     </option>
                 ))}
             </select>
+            <LocalCases
+                url={`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=${selectedCountryCode}`}
+            />
         </section>
     )
 }
