@@ -4,6 +4,7 @@ import useStatistics from '../src/useStatistics'
 import Confirmed from './Confirmed'
 import Deaths from './Deaths'
 import Spinner from './Spinner'
+import Provinces from './Provinces'
 
 const CasesWrapper = styled.section`
     max-width: 1280px;
@@ -30,6 +31,9 @@ const LocalCases = ({ url }) => {
                 <Confirmed confirmed={latest.confirmed} />
                 <Deaths deaths={latest.deaths} />
             </CasesWrapper>
+            {Array.isArray(locations) && locations.length > 1 ? (
+                <Provinces locations={locations} />
+            ) : null}
         </>
     )
 }
