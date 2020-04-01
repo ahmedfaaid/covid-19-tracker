@@ -40,7 +40,7 @@ export default function ProvinceCard({ locations }) {
                 <div>
                     <CardInfo>
                         <div style={{ width: '100%' }}>
-                            <span>Province</span>
+                            <span>Province/State/Territory</span>
                             <span>{province}</span>
                         </div>
 
