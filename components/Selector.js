@@ -33,10 +33,18 @@ export default function Selector({ url }) {
     }))
 
     const uniqueLocations = Array.from(
-        new Set(locationArray.map(a => a.code))
-    ).map(countryCode => {
-        return locationArray.find(a => a.code === countryCode)
-    })
+        new Set(locationArray.map(arr1 => arr1.code))
+    )
+        .map(countryCode => {
+            return locationArray.find(arr2 => arr2.code === countryCode)
+        })
+        .sort((obj1, obj2) => {
+            const x = obj1.country.toLowerCase()
+            const y = obj2.country.toLowerCase()
+            if (x < y) return -1
+            if (x > y) return 1
+            return 0
+        })
 
     console.log(uniqueLocations)
 
