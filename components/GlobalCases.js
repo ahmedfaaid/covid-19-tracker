@@ -6,8 +6,6 @@ import Deaths from './Deaths'
 import Spinner from './Spinner'
 
 const CasesWrapper = styled.section`
-    height: 30vh;
-    min-height: 30vh;
     max-width: 1280px;
     margin: auto;
     display: grid;
