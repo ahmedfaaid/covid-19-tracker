@@ -7,11 +7,13 @@ const CardInfo = styled.div`
     box-shadow: 0 5px 25px 0 rgba(34, 43, 55, 0.2);
     display: flex;
     justify-content: space-between;
-    margin-left: 20px;
+    margin: 0 auto 10px auto;
+    /* margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
     padding-bottom: 45px;
     padding-top: 45px;
+    width: 70%;
 
     div {
         width: 100%;
@@ -51,13 +53,13 @@ export default function ProvinceCard({ locations, countryName }) {
                     padding: '30px 0',
                 }}
             >
-                PROVINCE/TERRITORY BREAKDOWN FOR {countryName.toUpperCase()}
+                PROVINCE/STATE BREAKDOWN FOR {countryName.toUpperCase()}
             </h3>
-            {locations.map(({ province, latest }) => (
-                <div>
+            {locations.map(({ id, province, latest }) => (
+                <div key={id}>
                     <CardInfo>
                         <div>
-                            <span>Province/State/Territory</span>
+                            <span>Province/State</span>
                             <span>{province}</span>
                         </div>
 

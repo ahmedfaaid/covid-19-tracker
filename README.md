@@ -4,8 +4,9 @@ A simple tracker app using [a covid-19 tracker api](https://github.com/ExpDev07/
 
 TODO:
 
--   [] Geolocation
+-   [x] Geolocation
 -   [] Mobile responsiveness
 -   [] Navigation menu
+-   [] Content loading skeleton
 -   [] News section
 -   [] Data graphs

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import useStatistics from '../src/useStatistics'
 
@@ -51,9 +51,11 @@ const Select = styled.select`
     }
 `
 
-export default function Selector({ url }) {
+export default function Selector({ url, geolocation }) {
+    const { country_code } = geolocation
+
     const { statistics, isLoading, error } = useStatistics(url)
-    const [selectedCountryCode, setSelectedCountryCode] = useState('CA')
+    const [selectedCountryCode, setSelectedCountryCode] = useState(country_code)
 
     if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
