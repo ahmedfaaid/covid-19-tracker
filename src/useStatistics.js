@@ -7,7 +7,7 @@ export default function useStatistics(url) {
 
     useEffect(() => {
         async function fetchData() {
-            console.log('Loading data')
+            // console.log('Loading data')
 
             setIsLoading(true)
 
@@ -23,7 +23,7 @@ export default function useStatistics(url) {
             }
 
             setIsLoading(false)
-            console.log('Data loaded')
+            // console.log('Data loaded')
         }
 
         fetchData()
