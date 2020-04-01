@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+// Card styling from https://codepen.io/keenanpayne/pen/bOpxJv
 const CardInfo = styled.div`
     background-color: white;
     border-radius: 5px;
