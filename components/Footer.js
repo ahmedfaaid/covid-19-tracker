@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons'
 
+import { device } from '../device'
+
 const FooterWrapper = styled.footer`
     background: #7d70ba;
     padding: 24px 0;
@@ -10,9 +12,12 @@ const FooterWrapper = styled.footer`
 const Container = styled.div`
     max-width: 1280px;
     margin: auto;
-    /* flex on medium screens */
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    text-align: center;
+
+    div:not(:last-child) {
+        margin-bottom: 20px;
+    }
 `
 
 const SocialList = styled.ul`
@@ -45,7 +50,7 @@ export default function Footer() {
                             rel='noopener noreferrer'
                             alt='Ahmed Alhassan'
                         >
-                            Created by Ahmed Alhassan
+                            Ahmed Alhassan
                         </IconLink>
                     </p>
                 </div>
@@ -57,7 +62,7 @@ export default function Footer() {
                             rel='noopener noreferrer'
                             alt='Covid-19 Tracker Repo'
                         >
-                            Find the Github Repository here
+                            Github Repository
                         </IconLink>
                     </p>
                 </div>

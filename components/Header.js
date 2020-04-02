@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVirus } from '@fortawesome/free-solid-svg-icons'
 
+import { device } from '../device'
+
 const Navbar = styled.nav`
     width: 100%;
     background: linear-gradient(to right, #dec1ff, #7d70ba);
@@ -9,6 +11,10 @@ const Navbar = styled.nav`
     justify-content: center;
     padding: 20px 0;
     font-size: 1.5rem;
+
+    @media ${device.mobileL} {
+        font-size: 1rem;
+    }
 `
 
 const LogoHeading = styled.h1`
