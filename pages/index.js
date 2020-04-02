@@ -4,6 +4,7 @@ import GlobalCases from '../components/GlobalCases'
 import Header from '../components/Header'
 import Selector from '../components/Selector'
 import Spinner from '../components/Spinner'
+import Footer from '../components/Footer'
 
 function indexPage() {
     const [geolocation, setGeolocation] = useState()
@@ -44,6 +45,7 @@ function indexPage() {
                     url='https://coronavirus-tracker-api.herokuapp.com/v2/locations'
                 />
             </main>
+            <Footer />
         </>
     )
 }

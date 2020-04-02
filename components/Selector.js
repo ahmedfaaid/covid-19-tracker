@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import useStatistics from '../src/useStatistics'
 
+import { device } from '../device'
+
 import Spinner from './Spinner'
 import LocalCases from './LocalCases'
 
@@ -48,6 +50,22 @@ const Select = styled.select`
 
     option {
         font-weight: normal;
+    }
+
+    @media ${device.mobileL} {
+        min-width: 60%;
+    }
+`
+
+const Heading2 = styled.h2`
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px 0;
+
+    @media ${device.mobileL} {
+        margin: 15px 0;
+        padding: 15px 0;
+        font-size: 16px;
     }
 `
 
@@ -99,15 +117,7 @@ export default function Selector({ url, geolocation }) {
 
     return (
         <section>
-            <h2
-                style={{
-                    textAlign: 'center',
-                    margin: '30px 0 30px 0',
-                    padding: '30px 0',
-                }}
-            >
-                COVID-19 STATISTICS BY COUNTRY
-            </h2>
+            <Heading2>COVID-19 STATISTICS BY COUNTRY</Heading2>
             <Select
                 onChange={e => {
                     setSelectedCountryCode(e.target.value)

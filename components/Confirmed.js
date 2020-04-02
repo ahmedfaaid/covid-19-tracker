@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { device } from '../device'
+
 const ConfirmedBox = styled.div`
     background: #7d70ba;
     width: 300px;
@@ -8,6 +10,10 @@ const ConfirmedBox = styled.div`
     border: 1px solid #fff;
     border-radius: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    @media ${device.mobileL} {
+        margin: 0 auto 20px auto;
+    }
 `
 
 export default function Confirmed({ confirmed }) {

@@ -5,6 +5,8 @@ import Confirmed from './Confirmed'
 import Deaths from './Deaths'
 import Spinner from './Spinner'
 
+import { device } from '../device'
+
 const CasesWrapper = styled.section`
     max-width: 1280px;
     margin: auto;
@@ -14,6 +16,22 @@ const CasesWrapper = styled.section`
     justify-items: center;
     align-items: center;
     color: #fff;
+
+    @media ${device.mobileL} {
+        display: block;
+        padding: 10px 0 30px 0;
+    }
+`
+
+const Heading2 = styled.h2`
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px 0;
+
+    @media ${device.mobileL} {
+        margin: 15px 0;
+        padding: 15px 0;
+    }
 `
 
 const GlobalCases = ({ url }) => {
@@ -24,15 +42,7 @@ const GlobalCases = ({ url }) => {
 
     return (
         <section>
-            <h2
-                style={{
-                    textAlign: 'center',
-                    margin: '30px 0 30px 0',
-                    padding: '30px 0',
-                }}
-            >
-                GLOBAL CASES
-            </h2>
+            <Heading2>GLOBAL CASES</Heading2>
             <CasesWrapper>
                 <Confirmed confirmed={statistics.latest.confirmed} />
                 <Deaths deaths={statistics.latest.deaths} />
