@@ -97,7 +97,7 @@ const LocalCases = ({ url, code }) => {
     return (
         <>
             <Heading2>STATISTICS FOR {countryName.toUpperCase()}</Heading2>
-            <div>
+            <div style={{ marginBottom: '10px' }}>
                 <CardInfo>
                     <div>
                         <span>Confirmed</span>
