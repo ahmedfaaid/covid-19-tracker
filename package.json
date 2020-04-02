@@ -4,7 +4,8 @@
   "description": "Tracking the deadly Covid-19",
   "main": "index.js",
   "scripts": {
-    "start": "next"
+    "start": "next",
+    "build": "next build"
   },
   "author": "Ahmed Alhassan",
   "license": "MIT",
