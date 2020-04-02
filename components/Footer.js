@@ -25,7 +25,7 @@ const SocialList = styled.ul`
 const IconLink = styled.a`
     color: #fff;
     font-size: 18px;
-    margin: 12px;
+    margin: 0 12px;
 
     &:hover {
         color: #000;
@@ -37,27 +37,48 @@ export default function Footer() {
         <FooterWrapper>
             <Container>
                 <div>
-                    <p style={{ color: '#fff', verticalAlign: 'middle' }}>
-                        &copy; {new Date().getFullYear()} - Created by Ahmed
-                        Alhassan
+                    <p style={{ color: '#fff', fontSize: '18px' }}>
+                        &copy; {new Date().getFullYear()} -
+                        <IconLink
+                            href='https://ahmedfaaid.com'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            alt='Ahmed Alhassan'
+                        >
+                            Created by Ahmed Alhassan
+                        </IconLink>
+                    </p>
+                </div>
+                <div>
+                    <p style={{ color: '#fff', fontSize: '18px' }}>
+                        <IconLink
+                            href='https://github.com/ahmedfaaid/covid-19-tracker'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            alt='Covid-19 Tracker Repo'
+                        >
+                            Find the Github Repository here
+                        </IconLink>
                     </p>
                 </div>
                 <div>
                     <SocialList>
                         <li style={{ listStyle: 'none' }}>
                             <IconLink
-                                href='https://instagram.com/sneakersseur'
+                                href='https://twitter.com/mr_amed'
                                 target='_blank'
                                 rel='noopener noreferrer'
+                                alt={`Ahmed's Twitter`}
                             >
                                 <FontAwesomeIcon icon={faTwitter} />
                             </IconLink>
                         </li>
                         <li style={{ listStyle: 'none' }}>
                             <IconLink
-                                href='https://twitter.com/sneakersseur'
+                                href='https://github.com/ahmedfaaid'
                                 target='_blank'
                                 rel='noopener noreferrer'
+                                alt={`Ahmed's Github`}
                             >
                                 <FontAwesomeIcon icon={faGithub} />
                             </IconLink>
