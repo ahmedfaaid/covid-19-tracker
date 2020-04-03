@@ -77,12 +77,27 @@ export default function ProvinceCard({ locations, countryName }) {
     // const formatNumber = num =>
     //     num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 
+    // Sort objects by province names alphabetically
+    const uniqueLocations = Array.from(
+        new Set(locations.map(arr1 => arr1.province))
+    )
+        .map(province => {
+            return locations.find(arr2 => arr2.province === province)
+        })
+        .sort((obj1, obj2) => {
+            const x = obj1.province.toLowerCase()
+            const y = obj2.province.toLowerCase()
+            if (x < y) return -1
+            if (x > y) return 1
+            return 0
+        })
+
     return (
         <section>
             <Heading3>
                 PROVINCE/STATE BREAKDOWN FOR {countryName.toUpperCase()}
             </Heading3>
-            {locations.map(({ id, province, latest }) => (
+            {uniqueLocations.map(({ id, province, latest }) => (
                 <div key={id}>
                     <CardInfo>
                         <div>

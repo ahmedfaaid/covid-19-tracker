@@ -99,6 +99,7 @@ export default function Selector({ url, geolocation }) {
         country,
     }))
 
+    // Sort objects by country name alphabetically
     const uniqueLocations = Array.from(
         new Set(locationArray.map(arr1 => arr1.code))
     )
