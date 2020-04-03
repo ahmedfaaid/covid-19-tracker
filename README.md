@@ -18,11 +18,15 @@ npm install
 
 -   [x] Geolocation
 -   [x] Mobile responsiveness
--   [] Custom 404 error page
+-   [x] Custom 404 error page
 -   [] Navigation menu
 -   [] Content loading skeleton
 -   [] News section
 -   [] Data graphs and visualizations
+
+### Issues
+
+-   There is an error with fetching data for Serbia and Montenegro
 
 ### License
 
