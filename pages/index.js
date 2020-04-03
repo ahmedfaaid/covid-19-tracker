@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import { initGA, logPageView } from '../src/analytics'
+
 import GlobalCases from '../components/GlobalCases'
 import Header from '../components/Header'
 import Selector from '../components/Selector'
@@ -30,6 +32,13 @@ function indexPage() {
         }
 
         fetchLocation()
+
+        if (!window.GA_INITIALIZED) {
+            initGA()
+            window.GA_INITIALIZED = true
+        }
+
+        logPageView()
     }, [])
 
     if (isLoading) return <Spinner />
