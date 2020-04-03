@@ -41,19 +41,35 @@ function MyApp({ Component, pageProps }) {
                     key='viewport'
                 />
                 {/* open graph */}
-                <meta property="og:title" content="COVID-19 Tracker" />
-                <meta property="og:description" content="A simple COVID-19 stat tracking app with country selector and province/state statistics break down" />
-                <meta property="og:image" content="/images/coronavirus-cdc-image.jpg" />
-                <meta property="og:url" content="covid-19-ahmed.now.sh" />
-                <meta property="og:site_name" content="COVID-19 Tracker" />
+                <meta property='og:title' content='COVID-19 Tracker' />
+                <meta
+                    property='og:description'
+                    content='A simple COVID-19 stat tracking app with country selector and province/state statistics break down'
+                />
+                <meta
+                    property='og:image'
+                    content='/images/coronavirus-cdc-image.jpg'
+                />
+                <meta property='og:url' content='covid-19-ahmed.now.sh' />
+                <meta property='og:site_name' content='COVID-19 Tracker' />
                 {/* twitter cards */}
-                <meta property="twitter:title" content="COVID-19 Tracker" />
-                <meta property="twitter:description" content="A simple COVID-19 stat tracking app with country selector and province/state statistics break down" />
-                <meta property="twitter:image" content="/images/coronavirus-cdc-image.jpg" />
-                <meta property="twitter:site" content="@mr_amed" />
-                <meta property="twitter:creator" content="@mr_amed" />
+                <meta name='twitter:card' content='summary' />
+                <meta property='twitter:title' content='COVID-19 Tracker' />
+                <meta
+                    property='twitter:description'
+                    content='A simple COVID-19 stat tracking app with country selector and province/state statistics break down'
+                />
+                <meta
+                    property='twitter:image'
+                    content='/images/coronavirus-cdc-image.jpg'
+                />
+                <meta property='twitter:site' content='@mr_amed' />
+                <meta property='twitter:creator' content='@mr_amed' />
                 {/* seo meta */}
-                <meta name="description" content="A simple COVID-19 stat tracking app with country selector and province/state statistics break down" />
+                <meta
+                    name='description'
+                    content='A simple COVID-19 stat tracking app with country selector and province/state statistics break down'
+                />
             </Head>
             <Component {...pageProps} />
         </>
