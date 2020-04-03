@@ -18,6 +18,7 @@ npm install
 
 -   [x] Geolocation
 -   [x] Mobile responsiveness
+-   [] Custom 404 error page
 -   [] Navigation menu
 -   [] Content loading skeleton
 -   [] News section
