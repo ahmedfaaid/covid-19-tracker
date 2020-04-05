@@ -26,7 +26,7 @@ npm install
 
 ### Issues
 
--   There is an error with fetching data for Serbia and Montenegro
+-   There is an error with fetching data for Serbia and Montenegro _FIXED_
 
 ### License
 
