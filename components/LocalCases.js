@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import useStatistics from '../src/useStatistics'
+import useStatistics from '../util/useStatistics'
 
 import Spinner from './Spinner'
 import Provinces from './Provinces'
 
 import { device } from '../device'
+import { formatNumber } from '../util/functions'
 import countryCodes from '../country-codes'
 
 // Card styling from https://codepen.io/keenanpayne/pen/bOpxJv
@@ -101,12 +102,12 @@ const LocalCases = ({ url, code }) => {
                 <CardInfo>
                     <div>
                         <span>Confirmed</span>
-                        <span>{latest.confirmed}</span>
+                        <span>{formatNumber(latest.confirmed)}</span>
                     </div>
 
                     <div>
                         <span>Deaths</span>
-                        <span>{latest.deaths}</span>
+                        <span>{formatNumber(latest.deaths)}</span>
                     </div>
                 </CardInfo>
             </div>

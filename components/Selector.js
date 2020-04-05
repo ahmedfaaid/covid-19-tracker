@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import useStatistics from '../src/useStatistics'
+import useStatistics from '../util/useStatistics'
 
 import { device } from '../device'
 

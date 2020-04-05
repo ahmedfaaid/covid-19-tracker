@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { initGA, logPageView } from '../src/analytics'
+import { initGA, logPageView } from '../util/analytics'
 
 import GlobalCases from '../components/GlobalCases'
 import Header from '../components/Header'

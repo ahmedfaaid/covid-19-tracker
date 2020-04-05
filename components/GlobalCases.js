@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import useStatistics from '../src/useStatistics'
+import useStatistics from '../util/useStatistics'
 
 import Confirmed from './Confirmed'
 import Deaths from './Deaths'
 import Spinner from './Spinner'
 
 import { device } from '../device'
+import { formatNumber } from '../util/functions'
 
 const CasesWrapper = styled.section`
     max-width: 1280px;
@@ -44,8 +45,10 @@ const GlobalCases = ({ url }) => {
         <section>
             <Heading2>GLOBAL CASES</Heading2>
             <CasesWrapper>
-                <Confirmed confirmed={statistics.latest.confirmed} />
-                <Deaths deaths={statistics.latest.deaths} />
+                <Confirmed
+                    confirmed={formatNumber(statistics.latest.confirmed)}
+                />
+                <Deaths deaths={formatNumber(statistics.latest.deaths)} />
             </CasesWrapper>
         </section>
     )

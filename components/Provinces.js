@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { device } from '../device'
+import { formatNumber } from '../util/functions'
 
 // Card styling from https://codepen.io/keenanpayne/pen/bOpxJv
 const CardInfo = styled.div`
@@ -73,10 +74,6 @@ const Heading3 = styled.h3`
 `
 
 export default function ProvinceCard({ locations, countryName }) {
-    // format number with comma separators for country populations
-    // const formatNumber = num =>
-    //     num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-
     // Sort objects by province names alphabetically
     const uniqueLocations = Array.from(
         new Set(locations.map(arr1 => arr1.province))
@@ -107,12 +104,12 @@ export default function ProvinceCard({ locations, countryName }) {
 
                         <div>
                             <span>Confirmed</span>
-                            <span>{latest.confirmed}</span>
+                            <span>{formatNumber(latest.confirmed)}</span>
                         </div>
 
                         <div>
                             <span>Deaths</span>
-                            <span>{latest.deaths}</span>
+                            <span>{formatNumber(latest.deaths)}</span>
                         </div>
                     </CardInfo>
                 </div>
