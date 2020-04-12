@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import Selector from '../components/Selector'
 import Spinner from '../components/Spinner'
 import Footer from '../components/Footer'
+import LineChart from '../components/LineChart'
 
 function indexPage() {
     const [geolocation, setGeolocation] = useState()
@@ -49,6 +50,7 @@ function indexPage() {
             <Header />
             <main>
                 <GlobalCases url='https://coronavirus-tracker-api.herokuapp.com/v2/latest' />
+                <LineChart />
                 <Selector
                     geolocation={geolocation}
                     url='https://coronavirus-tracker-api.herokuapp.com/v2/locations'
