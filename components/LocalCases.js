@@ -3,6 +3,7 @@ import useStatistics from '../util/useStatistics'
 
 import Spinner from './Spinner'
 import Provinces from './Provinces'
+import LineChart from './LineChart'
 
 import { device } from '../device'
 import { formatNumber } from '../util/functions'
@@ -111,6 +112,7 @@ const LocalCases = ({ url, code }) => {
                     </div>
                 </CardInfo>
             </div>
+            <LineChart countryName={countryName} />
             {Array.isArray(locations) && locations.length > 1 ? (
                 <Provinces countryName={countryName} locations={locations} />
             ) : null}
