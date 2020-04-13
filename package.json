@@ -1,6 +1,6 @@
 {
   "name": "covid-19-stats",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "description": "Tracking the deadly Covid-19",
   "main": "index.js",
   "scripts": {
