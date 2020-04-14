@@ -22,7 +22,7 @@ npm install
 -   [] Navigation menu
 -   [] Content loading skeleton
 -   [] News section
--   [] Data graphs and visualizations
+-   [x] Data graphs and visualizations
 
 ### Issues
 
