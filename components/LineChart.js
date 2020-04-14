@@ -64,8 +64,7 @@ function LineChart({ countryName }) {
             id: 'basic-bar',
             toolbar: {
                 show: false
-            },
-            width: '700px'
+            }
         },
         xaxis: {
             type: 'datetime',
