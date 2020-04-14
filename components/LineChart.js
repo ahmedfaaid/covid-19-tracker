@@ -4,13 +4,22 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 import useStatistics from '../util/useStatistics'
 import { useState } from 'react'
 import styled from 'styled-components'
+import { device } from '../device'
 
 import Spinner from './Spinner'
 
 const ChartWrapper = styled.div`
     text-align: center;
-    width: 500px;
+    width: 700px;
     margin: 30px auto;
+
+    @media ${device.mobileL} {
+        width: 400px;
+    }
+
+    @media ${device.mobileM} {
+        width: 100%;
+    }
 `
 
 const SwitchButton = styled.div`
@@ -49,8 +58,6 @@ function LineChart({ countryName }) {
     const confirmedData = statistics[countryName].map(data => data.confirmed)
     const deathsData = statistics[countryName].map(data => data.deaths)
 
-    console.log(dates, confirmedData)
-
     // chart options
     const options = {
         chart: {
@@ -81,7 +88,8 @@ function LineChart({ countryName }) {
                 fontSize: '16px',
                 fontWeight: 'bold',
                 color: '#7d70ba'
-            }
+            },
+            align: 'center'
         }
     }
 
@@ -109,7 +117,7 @@ function LineChart({ countryName }) {
 
     return (
         <ChartWrapper>
-            <Chart options={options} series={series} type='line' width='500' />
+            <Chart options={options} series={series} type='line' />
             <SwitchButton onClick={switchData}>
                 Switch to{' '}
                 {dataShown === 'Confirmed'
