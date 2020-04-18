@@ -54,9 +54,15 @@ function LineChart({ countryName }) {
     if (error) return <p>There was an error</p>
 
     // isolate data
-    const dates = statistics[countryName].map(data => data.date)
-    const confirmedData = statistics[countryName].map(data => data.confirmed)
-    const deathsData = statistics[countryName].map(data => data.deaths)
+    const dates = statistics[
+        countryName === 'United States' ? 'US' : countryName
+    ].map(data => data.date)
+    const confirmedData = statistics[
+        countryName === 'United States' ? 'US' : countryName
+    ].map(data => data.confirmed)
+    const deathsData = statistics[
+        countryName === 'United States' ? 'US' : countryName
+    ].map(data => data.deaths)
 
     // chart options
     const options = {
