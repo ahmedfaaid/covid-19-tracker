@@ -18,7 +18,7 @@ function indexPage() {
             setIsLoading(true)
 
             try {
-                const location = await fetch('https://freegeoip.app/json/')
+                const location = await fetch('https://freegeoip.live/json/')
                     .then(res => res.json())
                     .catch(err => setError(err))
 
