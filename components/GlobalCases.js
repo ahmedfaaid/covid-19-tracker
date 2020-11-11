@@ -46,9 +46,9 @@ const GlobalCases = ({ url }) => {
             <Heading2>GLOBAL CASES</Heading2>
             <CasesWrapper>
                 <Confirmed
-                    confirmed={formatNumber(statistics.latest.confirmed)}
+                    confirmed={formatNumber(statistics.data.confirmed)}
                 />
-                <Deaths deaths={formatNumber(statistics.latest.deaths)} />
+                <Deaths deaths={formatNumber(statistics.data.deaths)} />
             </CasesWrapper>
         </section>
     )
