@@ -74,27 +74,12 @@ const Heading3 = styled.h3`
 `
 
 export default function ProvinceCard({ countryData, countryName }) {
-    // Sort objects by province names alphabetically
-    // const uniqueLocations = Array.from(
-    //     new Set(locations.map(arr1 => arr1.province))
-    // )
-    //     .map(province => {
-    //         return locations.find(arr2 => arr2.province === province)
-    //     })
-    //     .sort((obj1, obj2) => {
-    //         const x = obj1.province.toLowerCase()
-    //         const y = obj2.province.toLowerCase()
-    //         if (x < y) return -1
-    //         if (x > y) return 1
-    //         return 0
-    //     })
-
     return (
         <section>
             <Heading3>
                 PROVINCE/STATE BREAKDOWN FOR {countryName.toUpperCase()}
             </Heading3>
-            {countryData.map(({ confirmed, deaths, region }) => (
+            {countryData.map(({ confirmed, deaths, recovered, region }) => (
                 <div key={region.province}>
                     <CardInfo>
                         <div>
@@ -110,6 +95,11 @@ export default function ProvinceCard({ countryData, countryName }) {
                         <div>
                             <span>Deaths</span>
                             <span>{formatNumber(deaths)}</span>
+                        </div>
+
+                        <div>
+                            <span>Recovered</span>
+                            <span>{formatNumber(recovered)}</span>
                         </div>
                     </CardInfo>
                 </div>

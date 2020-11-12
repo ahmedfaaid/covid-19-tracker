@@ -106,6 +106,11 @@ const LocalCases = ({ countries, iso, isLoading, error }) => {
                         <span>Deaths</span>
                         <span>{formatNumber(totals.deaths)}</span>
                     </div>
+
+                    <div>
+                        <span>Recovered</span>
+                        <span>{formatNumber(totals.recovered)}</span>
+                    </div>
                 </CardInfo>
             </div>
             <LineChart countryName={countryData[0].region.name} />
