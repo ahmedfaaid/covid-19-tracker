@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 import { device } from '../device'
 
-const DeathBox = styled.div`
-    background: #424242;
+const ConfirmedBox = styled.div`
+    background: #87ceeb;
     width: 300px;
     padding: 40px 30px;
     text-align: center;
@@ -16,10 +16,10 @@ const DeathBox = styled.div`
     }
 `
 
-export default function Confirmed({ deaths }) {
+export default function Confirmed({ recovered }) {
     return (
-        <DeathBox>
-            <h3>DEATHS:</h3>
+        <ConfirmedBox>
+            <h3>RECOVERED CASES:</h3>
             <span
                 style={{
                     display: 'inline-block',
@@ -28,8 +28,8 @@ export default function Confirmed({ deaths }) {
                     borderBottom: '1px solid #fff'
                 }}
             >
-                {deaths}
+                {recovered}
             </span>
-        </DeathBox>
+        </ConfirmedBox>
     )
 }

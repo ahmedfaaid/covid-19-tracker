@@ -3,6 +3,7 @@ import useStatistics from '../util/useStatistics'
 
 import Confirmed from './Confirmed'
 import Deaths from './Deaths'
+import Recovered from './Recovered'
 import Spinner from './Spinner'
 
 import { device } from '../device'
@@ -13,7 +14,7 @@ const CasesWrapper = styled.section`
     margin: auto;
     padding: 40px 0 100px 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
     color: #fff;
@@ -49,6 +50,9 @@ const GlobalCases = ({ url }) => {
                     confirmed={formatNumber(statistics.data.confirmed)}
                 />
                 <Deaths deaths={formatNumber(statistics.data.deaths)} />
+                <Recovered
+                    recovered={formatNumber(statistics.data.recovered)}
+                />
             </CasesWrapper>
         </section>
     )
