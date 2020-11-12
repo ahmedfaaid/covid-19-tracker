@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import useStatistics from '../util/useStatistics'
+import iso3Codes from '../iso3-country-codes'
+import { removeDuplicates } from '../util/functions'
 
 import { device } from '../device'
 
@@ -72,49 +74,17 @@ const Heading2 = styled.h2`
 export default function Selector({ url, geolocation }) {
     const { country_code } = geolocation
 
+    const iso = iso3Codes[country_code]
+
     const { statistics, isLoading, error } = useStatistics(url)
-    const [selectedCountryCode, setSelectedCountryCode] = useState(country_code)
+    const [selectedCountryCode, setSelectedCountryCode] = useState(iso)
 
     if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
 
-    const { locations } = statistics
+    const { data } = statistics
 
-    /* START */
-    // THIS CODE WILL BE REDUNDANT BUT ITS USEFUL TO REMEMBER FOR THE FUTURE
-    // creating a unique array of country names
-    // return only country names
-    // const countryNamesArr = locations.map(location => location.country)
-
-    // remove duplicates with set
-    // const countryNamesObj = new Set(countryNamesArr)
-
-    // convert back to array
-    // const allCountryNames = [...countryNamesObj]
-    /* END */
-
-    // creating a unique array of country codes and names
-    const locationArray = locations.map(({ country, country_code }) => ({
-        code: country_code,
-        country,
-    }))
-
-    // Sort objects by country name alphabetically
-    const uniqueLocations = Array.from(
-        new Set(locationArray.map(arr1 => arr1.code))
-    )
-        .map(countryCode => {
-            return locationArray.find(arr2 => arr2.code === countryCode)
-        })
-        .sort((obj1, obj2) => {
-            const x = obj1.country.toLowerCase()
-            const y = obj2.country.toLowerCase()
-            if (x < y) return -1
-            if (x > y) return 1
-            return 0
-        })
-
-    // console.log(uniqueLocations)
+    const countries = removeDuplicates(data)
 
     return (
         <section>
@@ -124,19 +94,21 @@ export default function Selector({ url, geolocation }) {
                     setSelectedCountryCode(e.target.value)
                 }}
             >
-                {uniqueLocations.map(({ code, country }) => (
+                {countries.map(country => (
                     <option
-                        key={code}
-                        selected={selectedCountryCode === code}
-                        value={code}
+                        key={country.region.iso}
+                        selected={selectedCountryCode === country.region.iso}
+                        value={country.region.iso}
                     >
-                        {country}
+                        {country.region.name}
                     </option>
                 ))}
             </Select>
             <LocalCases
-                code={selectedCountryCode}
-                url={`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=${selectedCountryCode}`}
+                iso={selectedCountryCode}
+                countries={data}
+                isLoading={isLoading}
+                error={error}
             />
         </section>
     )
