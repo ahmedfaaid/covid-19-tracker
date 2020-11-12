@@ -6,8 +6,8 @@ import Provinces from './Provinces'
 import LineChart from './LineChart'
 
 import { device } from '../device'
-import { formatNumber } from '../util/functions'
-import countryCodes from '../country-codes'
+import { filteredCountry, formatNumber, stats } from '../util/functions'
+import countryCodes from '../iso2-country-codes'
 
 // Card styling from https://codepen.io/keenanpayne/pen/bOpxJv
 const CardInfo = styled.div`
@@ -82,39 +82,38 @@ const Heading2 = styled.h2`
     }
 `
 
-const LocalCases = ({ url, code }) => {
-    const { statistics, isLoading, error } = useStatistics(url)
-
+const LocalCases = ({ countries, iso, isLoading, error }) => {
     if (isLoading) return <Spinner />
     if (error) return <p>There was an error</p>
 
-    const { latest, locations } = statistics
+    const countryData = filteredCountry(countries, iso)
 
-    const countryObj = countryCodes.filter(country =>
-        country.code === code ? `${country.name}` : null
-    )
-
-    const countryName = countryObj[0].name
+    const totals = stats(countryData)
 
     return (
         <>
-            <Heading2>STATISTICS FOR {countryName.toUpperCase()}</Heading2>
+            <Heading2>
+                STATISTICS FOR {countryData[0].region.name.toUpperCase()}
+            </Heading2>
             <div style={{ marginBottom: '10px' }}>
                 <CardInfo>
                     <div>
                         <span>Confirmed</span>
-                        <span>{formatNumber(latest.confirmed)}</span>
+                        <span>{formatNumber(totals.confirmed)}</span>
                     </div>
 
                     <div>
                         <span>Deaths</span>
-                        <span>{formatNumber(latest.deaths)}</span>
+                        <span>{formatNumber(totals.deaths)}</span>
                     </div>
                 </CardInfo>
             </div>
-            <LineChart countryName={countryName} />
-            {Array.isArray(locations) && locations.length > 1 ? (
-                <Provinces countryName={countryName} locations={locations} />
+            <LineChart countryName={countryData[0].region.name} />
+            {Array.isArray(countryData) && countryData.length > 1 ? (
+                <Provinces
+                    countryName={countryData[0].region.name}
+                    countryData={countryData}
+                />
             ) : null}
         </>
     )

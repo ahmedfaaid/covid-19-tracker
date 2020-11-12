@@ -73,43 +73,43 @@ const Heading3 = styled.h3`
     }
 `
 
-export default function ProvinceCard({ locations, countryName }) {
+export default function ProvinceCard({ countryData, countryName }) {
     // Sort objects by province names alphabetically
-    const uniqueLocations = Array.from(
-        new Set(locations.map(arr1 => arr1.province))
-    )
-        .map(province => {
-            return locations.find(arr2 => arr2.province === province)
-        })
-        .sort((obj1, obj2) => {
-            const x = obj1.province.toLowerCase()
-            const y = obj2.province.toLowerCase()
-            if (x < y) return -1
-            if (x > y) return 1
-            return 0
-        })
+    // const uniqueLocations = Array.from(
+    //     new Set(locations.map(arr1 => arr1.province))
+    // )
+    //     .map(province => {
+    //         return locations.find(arr2 => arr2.province === province)
+    //     })
+    //     .sort((obj1, obj2) => {
+    //         const x = obj1.province.toLowerCase()
+    //         const y = obj2.province.toLowerCase()
+    //         if (x < y) return -1
+    //         if (x > y) return 1
+    //         return 0
+    //     })
 
     return (
         <section>
             <Heading3>
                 PROVINCE/STATE BREAKDOWN FOR {countryName.toUpperCase()}
             </Heading3>
-            {uniqueLocations.map(({ id, province, latest }) => (
-                <div key={id}>
+            {countryData.map(({ confirmed, deaths, region }) => (
+                <div key={region.province}>
                     <CardInfo>
                         <div>
                             <span>Province/State</span>
-                            <span>{province}</span>
+                            <span>{region.province}</span>
                         </div>
 
                         <div>
                             <span>Confirmed</span>
-                            <span>{formatNumber(latest.confirmed)}</span>
+                            <span>{formatNumber(confirmed)}</span>
                         </div>
 
                         <div>
                             <span>Deaths</span>
-                            <span>{formatNumber(latest.deaths)}</span>
+                            <span>{formatNumber(deaths)}</span>
                         </div>
                     </CardInfo>
                 </div>
