@@ -1,6 +1,8 @@
 # Covid-19 Tracker
 
-A simple tracker app using [a covid-19 tracker api](https://github.com/ExpDev07/coronavirus-tracker-api). It also uses [a free IP geolocation API](https://freegeoip.app/) to detect users' location.
+~~A simple tracker app using [a covid-19 tracker api](https://github.com/ExpDev07/coronavirus-tracker-api). It also uses [a free IP geolocation API](https://freegeoip.app/) to detect users' location.~~
+
+A simple tracker app using [a covid-19 tracker api](https://covid-api.com/api/). It also uses [a free IP geolocation API](https://freegeoip.app/) to detect users' location.
 
 ## Getting Started
 
