@@ -48,10 +48,15 @@ const GlobalCases = ({ url }) => {
             <CasesWrapper>
                 <Confirmed
                     confirmed={formatNumber(statistics.data.confirmed)}
+                    newCases={formatNumber(statistics.data.confirmed_diff)}
                 />
-                <Deaths deaths={formatNumber(statistics.data.deaths)} />
+                <Deaths
+                    deaths={formatNumber(statistics.data.deaths)}
+                    newDeaths={formatNumber(statistics.data.deaths_diff)}
+                />
                 <Recovered
                     recovered={formatNumber(statistics.data.recovered)}
+                    newRecovered={formatNumber(statistics.data.recovered_diff)}
                 />
             </CasesWrapper>
         </section>

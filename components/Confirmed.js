@@ -16,7 +16,7 @@ const ConfirmedBox = styled.div`
     }
 `
 
-export default function Confirmed({ confirmed }) {
+export default function Confirmed({ confirmed, newCases }) {
     return (
         <ConfirmedBox>
             <h3>CONFIRMED CASES:</h3>
@@ -25,10 +25,19 @@ export default function Confirmed({ confirmed }) {
                     display: 'inline-block',
                     marginTop: '10px',
                     fontSize: '26px',
-                    borderBottom: '1px solid #fff',
+                    borderBottom: '1px solid #fff'
                 }}
             >
                 {confirmed}
+            </span>
+            <span
+                style={{
+                    display: 'block',
+                    marginTop: '10px',
+                    fontSize: '14px'
+                }}
+            >
+                <strong>{newCases}</strong> New Cases
             </span>
         </ConfirmedBox>
     )

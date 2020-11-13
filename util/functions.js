@@ -25,8 +25,11 @@ export const stats = arr => {
     const totals = arr.reduce((acc, curr) => {
         return {
             confirmed: acc.confirmed + curr.confirmed,
+            confirmed_diff: acc.confirmed_diff + curr.confirmed_diff,
             deaths: acc.deaths + curr.deaths,
-            recovered: acc.recovered + curr.recovered
+            deaths_diff: acc.deaths_diff + curr.deaths_diff,
+            recovered: acc.recovered + curr.recovered,
+            recovered_diff: acc.recovered_diff + curr.recovered_diff
         }
     })
 

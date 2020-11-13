@@ -100,16 +100,43 @@ const LocalCases = ({ countries, iso, isLoading, error }) => {
                     <div>
                         <span>Confirmed</span>
                         <span>{formatNumber(totals.confirmed)}</span>
+                        <span
+                            style={{
+                                fontWeight: 'normal',
+                                marginTop: '10px',
+                                color: '#7d70ba'
+                            }}
+                        >
+                            {formatNumber(totals.confirmed_diff)} New Cases
+                        </span>
                     </div>
 
                     <div>
                         <span>Deaths</span>
                         <span>{formatNumber(totals.deaths)}</span>
+                        <span
+                            style={{
+                                fontWeight: 'normal',
+                                marginTop: '10px',
+                                color: '#424242'
+                            }}
+                        >
+                            {formatNumber(totals.deaths_diff)} New Deaths
+                        </span>
                     </div>
 
                     <div>
                         <span>Recovered</span>
                         <span>{formatNumber(totals.recovered)}</span>
+                        <span
+                            style={{
+                                fontWeight: 'normal',
+                                marginTop: '10px',
+                                color: '#87ceeb'
+                            }}
+                        >
+                            {formatNumber(totals.recovered_diff)} New Recoveries
+                        </span>
                     </div>
                 </CardInfo>
             </div>

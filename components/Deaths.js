@@ -16,7 +16,7 @@ const DeathBox = styled.div`
     }
 `
 
-export default function Confirmed({ deaths }) {
+export default function Confirmed({ deaths, newDeaths }) {
     return (
         <DeathBox>
             <h3>DEATHS:</h3>
@@ -29,6 +29,15 @@ export default function Confirmed({ deaths }) {
                 }}
             >
                 {deaths}
+            </span>
+            <span
+                style={{
+                    display: 'block',
+                    marginTop: '10px',
+                    fontSize: '14px'
+                }}
+            >
+                <strong>{newDeaths}</strong> New Deaths
             </span>
         </DeathBox>
     )

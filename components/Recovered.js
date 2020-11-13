@@ -16,7 +16,7 @@ const ConfirmedBox = styled.div`
     }
 `
 
-export default function Confirmed({ recovered }) {
+export default function Confirmed({ recovered, newRecovered }) {
     return (
         <ConfirmedBox>
             <h3>RECOVERED CASES:</h3>
@@ -29,6 +29,15 @@ export default function Confirmed({ recovered }) {
                 }}
             >
                 {recovered}
+            </span>
+            <span
+                style={{
+                    display: 'block',
+                    marginTop: '10px',
+                    fontSize: '14px'
+                }}
+            >
+                <strong>{newRecovered}</strong> New Recoveries
             </span>
         </ConfirmedBox>
     )

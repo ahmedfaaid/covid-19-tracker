@@ -79,31 +79,69 @@ export default function ProvinceCard({ countryData, countryName }) {
             <Heading3>
                 PROVINCE/STATE BREAKDOWN FOR {countryName.toUpperCase()}
             </Heading3>
-            {countryData.map(({ confirmed, deaths, recovered, region }) => (
-                <div key={region.province}>
-                    <CardInfo>
-                        <div>
-                            <span>Province/State</span>
-                            <span>{region.province}</span>
-                        </div>
+            {countryData.map(
+                ({
+                    confirmed,
+                    confirmed_diff,
+                    deaths,
+                    deaths_diff,
+                    recovered,
+                    recovered_diff,
+                    region
+                }) => (
+                    <div key={region.province}>
+                        <CardInfo>
+                            <div>
+                                <span>Province/State</span>
+                                <span>{region.province}</span>
+                            </div>
 
-                        <div>
-                            <span>Confirmed</span>
-                            <span>{formatNumber(confirmed)}</span>
-                        </div>
+                            <div>
+                                <span>Confirmed</span>
+                                <span>{formatNumber(confirmed)}</span>
+                                <span
+                                    style={{
+                                        fontWeight: 'normal',
+                                        marginTop: '10px',
+                                        color: '#7d70ba'
+                                    }}
+                                >
+                                    {formatNumber(confirmed_diff)} New Cases
+                                </span>
+                            </div>
 
-                        <div>
-                            <span>Deaths</span>
-                            <span>{formatNumber(deaths)}</span>
-                        </div>
+                            <div>
+                                <span>Deaths</span>
+                                <span>{formatNumber(deaths)}</span>
+                                <span
+                                    style={{
+                                        fontWeight: 'normal',
+                                        marginTop: '10px',
+                                        color: '#424242'
+                                    }}
+                                >
+                                    {formatNumber(deaths_diff)} New Deaths
+                                </span>
+                            </div>
 
-                        <div>
-                            <span>Recovered</span>
-                            <span>{formatNumber(recovered)}</span>
-                        </div>
-                    </CardInfo>
-                </div>
-            ))}
+                            <div>
+                                <span>Recovered</span>
+                                <span>{formatNumber(recovered)}</span>
+                                <span
+                                    style={{
+                                        fontWeight: 'normal',
+                                        marginTop: '10px',
+                                        color: '#87ceeb'
+                                    }}
+                                >
+                                    {formatNumber(recovered_diff)} New
+                                    Recoveries
+                                </span>
+                            </div>
+                        </CardInfo>
+                    </div>
+                )
+            )}
         </section>
     )
 }
