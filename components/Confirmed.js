@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
 
 const ConfirmedBox = styled.div`
-    background: #7d70ba;
+    background: ${colors['Space Cadet']};
     width: 300px;
     padding: 40px 30px;
     text-align: center;

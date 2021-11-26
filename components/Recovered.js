@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
 
 const ConfirmedBox = styled.div`
-    background: #87ceeb;
+    background: ${colors['Maximum Blue Green']};
     width: 300px;
     padding: 40px 30px;
     text-align: center;

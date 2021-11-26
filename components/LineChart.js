@@ -5,6 +5,7 @@ import useStatistics from '../util/useStatistics'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { device } from '../device'
+import { colors } from '../constants/colors'
 
 import Spinner from './Spinner'
 
@@ -116,7 +117,8 @@ function LineChart({ countryName }) {
             id: 'basic-bar',
             toolbar: {
                 show: false
-            }
+            },
+            background: '#fff'
         },
         xaxis: {
             type: 'datetime',
@@ -124,11 +126,11 @@ function LineChart({ countryName }) {
         },
         colors: [
             dataShown === 'Confirmed'
-                ? '#7d70ba'
+                ? colors['Space Cadet']
                 : dataShown === 'Deaths'
                 ? '#424242'
                 : dataShown === 'Recovered'
-                ? '#87ceeb'
+                ? colors['Maximum Blue Green']
                 : null
         ],
         title: {
@@ -143,7 +145,7 @@ function LineChart({ countryName }) {
             style: {
                 fontSize: '16px',
                 fontWeight: 'bold',
-                color: '#7d70ba'
+                color: colors['Space Cadet']
             },
             align: 'center'
         }

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
+
 import { formatNumber } from '../util/functions'
 
 // Card styling from https://codepen.io/keenanpayne/pen/bOpxJv
@@ -62,6 +64,7 @@ const CardInfo = styled.div`
 `
 
 const Heading3 = styled.h3`
+    color: #fff;
     text-align: center;
     margin: 30px 0;
     padding: 30px 0;
@@ -103,7 +106,7 @@ export default function ProvinceCard({ countryData, countryName }) {
                                     style={{
                                         fontWeight: 'normal',
                                         marginTop: '10px',
-                                        color: '#7d70ba'
+                                        color: colors['Space Cadet']
                                     }}
                                 >
                                     {formatNumber(confirmed_diff)} New Cases
@@ -131,7 +134,7 @@ export default function ProvinceCard({ countryData, countryName }) {
                                     style={{
                                         fontWeight: 'normal',
                                         marginTop: '10px',
-                                        color: '#87ceeb'
+                                        color: colors['Maximum Blue Green']
                                     }}
                                 >
                                     {formatNumber(recovered_diff)} New

@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
 
 const FooterWrapper = styled.footer`
-    background: #7d70ba;
+    background: ${colors.Independence};
     padding: 24px 0;
 `
 

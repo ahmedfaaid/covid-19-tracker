@@ -8,6 +8,7 @@ import Spinner from './Spinner'
 
 import { device } from '../device'
 import { formatNumber } from '../util/functions'
+import { colors } from '../constants/colors'
 
 const CasesWrapper = styled.section`
     max-width: 1280px;
@@ -26,6 +27,7 @@ const CasesWrapper = styled.section`
 `
 
 const Heading2 = styled.h2`
+    color: #fff;
     text-align: center;
     margin: 30px 0;
     padding: 30px 0;
