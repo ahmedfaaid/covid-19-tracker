@@ -3,10 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVirus } from '@fortawesome/free-solid-svg-icons'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
 
 const Navbar = styled.nav`
     width: 100%;
-    background: linear-gradient(to right, #dec1ff, #7d70ba);
+    /* background: linear-gradient(
+        to right,
+        ${colors['Oxford Blue']},
+        ${colors['Independence']}
+    ); */
     display: flex;
     justify-content: center;
     padding: 20px 0;

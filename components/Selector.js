@@ -5,6 +5,7 @@ import iso3Codes from '../iso3-country-codes'
 import { removeDuplicates } from '../util/functions'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
 
 import Spinner from './Spinner'
 import LocalCases from './LocalCases'
@@ -60,6 +61,7 @@ const Select = styled.select`
 `
 
 const Heading2 = styled.h2`
+    color: #fff;
     text-align: center;
     margin: 30px 0;
     padding: 30px 0;

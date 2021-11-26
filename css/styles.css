@@ -11,7 +11,8 @@ body {
         'Arial', sans-serif;
     box-sizing: border-box;
     position: relative;
-    background: #fff;
+    background: linear-gradient(to bottom right, #0b132b, #3a506b);
+    min-height: 100vh;
 }
 
 /* Spinner styles */

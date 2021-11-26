@@ -6,6 +6,8 @@ import Provinces from './Provinces'
 import LineChart from './LineChart'
 
 import { device } from '../device'
+import { colors } from '../constants/colors'
+
 import { filteredCountry, formatNumber, stats } from '../util/functions'
 import countryCodes from '../iso2-country-codes'
 
@@ -71,6 +73,7 @@ const CardInfo = styled.div`
 `
 
 const Heading2 = styled.h2`
+    color: #fff;
     text-align: center;
     margin: 30px 0;
     padding: 30px 0;
@@ -104,7 +107,7 @@ const LocalCases = ({ countries, iso, isLoading, error }) => {
                             style={{
                                 fontWeight: 'normal',
                                 marginTop: '10px',
-                                color: '#7d70ba'
+                                color: colors['Space Cadet']
                             }}
                         >
                             {formatNumber(totals.confirmed_diff)} New Cases
@@ -132,7 +135,7 @@ const LocalCases = ({ countries, iso, isLoading, error }) => {
                             style={{
                                 fontWeight: 'normal',
                                 marginTop: '10px',
-                                color: '#87ceeb'
+                                color: colors['Maximum Blue Green']
                             }}
                         >
                             {formatNumber(totals.recovered_diff)} New Recoveries
