@@ -48,7 +48,6 @@ function indexPage() {
         <>
             <Header />
             <main>
-                {/* <GlobalCases url='https://coronavirus-tracker-api.herokuapp.com/v2/latest' /> */}
                 <GlobalCases url='https://covid-api.com/api/reports/total' />
                 <Selector
                     geolocation={geolocation}
