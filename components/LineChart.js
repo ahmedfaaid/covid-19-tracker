@@ -95,7 +95,8 @@ const Select = styled.select`
 
 function LineChart({ countryName }) {
     const { statistics, isLoading, error } = useStatistics(
-        'https://pomber.github.io/covid19/timeseries.json'
+        'https://pomber.github.io/covid19/timeseries.json',
+        false
     )
 
     const [dataShown, setDataShown] = useState('Confirmed')
