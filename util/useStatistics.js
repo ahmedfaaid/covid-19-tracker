@@ -1,6 +1,7 @@
+import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-export default function useStatistics(url) {
+export default function useStatistics(url, cors = true) {
     const [statistics, setStatistics] = useState()
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState()
@@ -12,9 +13,11 @@ export default function useStatistics(url) {
             setIsLoading(true)
 
             try {
-                const data = await fetch(url)
-                    .then(res => res.json())
-                    .catch(err => setError(err))
+                const { data } = await axios.get(url, {
+                    headers: cors && {
+                        'Access-Control-Allow-Origin': '*'
+                    }
+                })
 
                 setStatistics(data)
             } catch (error) {
